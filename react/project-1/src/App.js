@@ -3,33 +3,25 @@ import "./App.css";
 import logo from "./logo.svg";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.handlePClick = this.handlePClick.bind(this); // BIND FUNCTION HERE
+  state = {
+    name: "Enzo Evangelista",
+    counter: 0,
+  };
 
-    this.state = {
-      name: 'Enzo Evangelista',
-      counter: 0,
-    };
-  }
-
-  handlePClick() {
-    // const { name } = this.state; // Without performing the bind above, it will not be possible to access the class of the class
-    // window.alert(name);
-
+  handlePClick = () => {
     this.setState({
-      name: 'Júnior'
+      name: "Júnior",
     });
-  }
+  };
 
   handleAClick = (event) => {
     event.preventDefault();
     const { counter } = this.state;
 
     this.setState({
-      counter: counter + 1
+      counter: counter + 1,
     });
-  }
+  };
 
   render() {
     const { name, counter } = this.state;
@@ -39,7 +31,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p onClick={this.handlePClick}>
-            { name } { counter }
+            {name} {counter}
           </p>
           <a
             onClick={this.handleAClick}
